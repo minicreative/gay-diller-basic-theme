@@ -1,0 +1,156 @@
+/*
+Child Theme SCSS
+*/
+
+// Color Variables
+$text: #000 !default;
+$link_accent: #000 !default;
+$button_bg: #000 !default;
+$button_text: #fff !default;
+$nav_accent: #000 !default;
+$nav_hover: #000 !default;
+
+// Fonts
+.column, .wp-block-column {
+	text-align:justify;
+	h1, h2, h3 {text-align:left;}
+}
+
+// Shadows
+@mixin section_shadow {@include box-shadow(0px 0px 15px rgba(0,0,0,0.6)); }
+
+// Reusable Elements ======================================================
+@mixin button {
+	display:block; padding:10px 20px; line-height:1.2; text-align:center; 
+	box-sizing:border-box; background:$button; color:$button_text;
+	&:hover {
+		@include box-shadow(0px 0px 4px rgba(0,0,0,0.16));
+	}
+}
+.button {@include button;}
+
+@mixin link {
+	border-bottom:1px solid $link;
+	&:hover {color:$link;}
+}
+
+// Basic Layout Styles ===================================================
+header {
+	position:relative; padding:20px 0px;
+
+	// Logo
+	.logo {
+		display:inline-block;
+		img {
+			height:100px; margin-bottom:-8px;
+			@include breakpoint(s) {height:85px;}
+		}
+	}
+
+	// Navigation
+	.navigation {
+
+		// Desktop navigation
+		@include breakpoint(notTouch) {
+			position:relative; display:inline-block; float:right; text-align:right; margin-top:70px;
+			font-size:14px; line-height:1; letter-spacing:1px; text-transform:uppercase;
+			
+			> ul > li {
+				margin-left:24px; padding-bottom:13px;
+				&.current-menu-item, &.current-menu-parent {
+					border-bottom:3px solid $nav_accent; padding-bottom:8px;
+				}
+				&.current-menu-item, &.current-menu-parent {
+					color:$nav_accent;
+				}
+				> a:hover {
+					color:$nav_hover;
+				}
+			}
+			ul.sub-menu {
+				background:white; border-top:3px solid $nav_accent; padding:5px 0px;
+				@include box-shadow(0px 3px 8px rgba(0,0,0,0.3)); margin-top:-5px;
+				width:200px; left:50%; margin-left:-100px; text-align:center;
+				li {
+					padding:10px 0px;
+					a {display:block;}
+					&:hover {background:#eee; color:$nav_hover;}
+				}
+			}
+		}
+	}
+}
+
+// Page Header
+.page-header {
+	padding:25px 0px; text-align:center;
+}
+
+// Content
+.content {
+	padding:50px 0px;
+	@include breakpoint(m) {padding:30px 0px;}
+
+	// Content Styles
+	a {@include link;}
+}
+
+// Contact Section
+.contact-section {
+	@include vertical-pad;
+
+	form {
+		.columns {
+			margin-bottom:-10px;
+			.column {
+				margin-bottom:10px !important; text-align:left;
+			}
+		}
+		input, textarea {
+			border:2px solid $form_accent; padding:2px 8px; line-height:1.5;
+		}
+		label {
+			display:block; font-size:13px;
+		}
+		input[type=submit] {
+			@include button; width:auto; margin:12px 0px 0px auto;
+		}
+	}
+}
+
+// Footer
+footer {
+	position:relative; z-index:10; @include vertical-pad; @include section_shadow;
+	@include breakpoint(m) {
+		text-align:center; padding:$padding_ 0px;
+	}
+}
+
+// Copyright Message
+.copyright {
+	padding:10px; font-size:14px; text-align:center;
+	a {@include link;}
+}
+
+// Page Elements ========================================================
+
+// Front Page Slider
+.front-page-slider {
+	.slick-arrow {
+		position:absolute; top:50%; margin-top:-15px; width:30px; height:30px;
+		background-size:100% 100%; cursor:pointer; z-index:100;
+		@include breakpoint(s) {visibility:hidden;}
+	}
+	.slick-prev {left:30px; background-image:url("../../images/arrow-prev.png");}
+	.slick-next {right:30px; background-image:url("../../images/arrow-next.png");}
+}
+
+// Front Page Buttons
+.front-page-buttons {
+	display:flex;
+	a {flex:1; text-align:center; padding:20px 0px;}
+	@include breakpoint(s) {
+		display:block;
+		a {display:block;}
+	}
+}
