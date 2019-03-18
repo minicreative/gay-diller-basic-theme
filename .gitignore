@@ -1,2 +1,2 @@
-*.DS_Store
-scss/scss_cache/*
+# Ignore all files (files must be added manually)
+*
