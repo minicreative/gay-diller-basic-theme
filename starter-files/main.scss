@@ -24,6 +24,8 @@ $padding: 30px;
 $padding_: 20px;
 
 // Import MiniCreative Parent Theme SCSS
-@import "theme.scss";
 @import "../../minicreative-wp-theme/scss/main.scss";
+
+// Import Gay Diller Child Theme SCSS
+@import "../scss/theme.scss";
 
