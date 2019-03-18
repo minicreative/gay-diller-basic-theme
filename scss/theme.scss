@@ -2,7 +2,12 @@
 Child Theme SCSS
 */
 
+// Font Variables:
+$font_display: serif !default;
+$font_body: sans-serif !default;
+
 // Color Variables
+$bg: #fff !default;
 $text: #000 !default;
 $link_accent: #000 !default;
 $button_bg: #000 !default;
@@ -10,7 +15,15 @@ $button_text: #fff !default;
 $nav_accent: #000 !default;
 $nav_hover: #000 !default;
 
+// Colors
+body {background:$bg;}
+
 // Fonts
+body {
+	font-family:$font_body; line-height:2;
+	@include breakpoint(s) {line-height:1.6;}
+}
+h1, h2, h3 {font-family:$font_display; font-weight:400;}
 .column, .wp-block-column {
 	text-align:justify;
 	h1, h2, h3 {text-align:left;}

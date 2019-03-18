@@ -1,0 +1,29 @@
+/*
+Site SCSS
+*/
+
+// Theme Colors
+// $primary:;
+// $accent:;
+
+// Font Variables:
+// $font_display:;
+// $font_body:;
+
+// Color Variables
+// $bg:;
+// $text:;
+// $link_accent:;
+// $button_bg:;
+// $button_text:;
+// $nav_accent:;
+// $nav_hover:;
+
+// Size Variables
+$padding: 30px;
+$padding_: 20px;
+
+// Import MiniCreative Parent Theme SCSS
+@import "theme.scss";
+@import "../../minicreative-wp-theme/scss/main.scss";
+
