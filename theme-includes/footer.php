@@ -1,7 +1,5 @@
 <footer>
 	<div class="container">
-		<div class="columns">
-			<?php dynamic_sidebar('footer'); ?>
-		</div>
+		<?php dynamic_sidebar('footer'); ?>
 	</div>
 </footer>

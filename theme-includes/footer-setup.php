@@ -5,7 +5,7 @@ function gay_diller_footer_setup() {
 	register_sidebar( array(
 		'name'          => 'Footer',
 		'id'            => 'footer',
-		'before_widget' => '<div class=\'column third\'>',
+		'before_widget' => '<div class=\'footercol\'>',
 		'after_widget'  => '</div>',
 	));
 }

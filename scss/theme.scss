@@ -11,7 +11,7 @@ $bg: #fff !default;
 $text: #000 !default;
 $link_accent: #000 !default;
 $button: #000 !default;
-$button_border: 1px solid #666;
+$button_border: 1px solid #666 !default;
 $button_text: #fff !default;
 $nav_accent: #000 !default;
 $nav_hover: #000 !default;
@@ -46,17 +46,20 @@ h1, h2, h3 {font-family:$font_display; font-weight:400;}
 
 @mixin link {
 	border-bottom:1px solid $link;
-	&:hover {color:$link;}
 }
 
-// WordPress Styles =====================================================
-footer .widgettitle, .contact-section .widgettitle {
-	display:none;
+.social {
+	font-size:32px;
+	a {
+		display:inline-block; margin:0px 6px; border:0px;
+		&:first-child {margin-left:0px;}
+		&:last-child {margin-right:0px;}
+	}
 }
 
 // Basic Layout Styles ===================================================
 header {
-	position:relative; padding:20px 0px;
+	position:relative; padding:20px 0px; @include section_shadow;
 
 	// Logo
 	.logo {
@@ -73,7 +76,7 @@ header {
 		// Desktop navigation
 		@include breakpoint(notTouch) {
 			position:relative; display:inline-block; float:right; text-align:right; margin-top:70px;
-			font-size:14px; line-height:1; letter-spacing:1px; text-transform:uppercase;
+			line-height:1; 
 			
 			> ul > li {
 				margin-left:24px; padding-bottom:13px;
@@ -115,6 +118,12 @@ header {
 	a {@include link;}
 }
 
+// Contact Section & Footer
+footer, .contact-section {
+	.widgettitle {display:none;}
+	h2 {margin-bottom:20px; line-height:1.2;}
+}
+
 // Contact Section
 .contact-section {
 	@include vertical-pad;
@@ -127,14 +136,16 @@ header {
 			}
 		}
 		input, textarea {
-			border:2px solid $form_accent; padding:2px 8px; line-height:1.5;
+			border:$form_accent; padding:2px 8px; line-height:1.5;
 		}
 		label {
 			display:block; font-size:13px;
 		}
 		input[type=submit] {
-			@include button; width:auto; margin:12px 0px 0px auto;
+			@include button; width:auto; margin:12px 0px 0px auto; min-width:150px;
 		}
+		p {position:relative; margin-bottom:0px;}
+		.ajax-loader {position:absolute; top:0px; left:0px;}
 	}
 }
 
@@ -143,6 +154,12 @@ footer {
 	position:relative; z-index:10; @include vertical-pad; @include section_shadow;
 	@include breakpoint(m) {
 		text-align:center; padding:$padding_ 0px;
+	}
+	.container {display:flex;}
+	.footercol {
+		flex:1; min-width:200px; margin:0px 15px;
+		&:first-child {margin-left:0px;}
+		&:last-child {margin-right:0px;}
 	}
 }
 
@@ -168,7 +185,7 @@ footer {
 // Front Page Buttons
 .front-page-buttons {
 	display:flex;
-	a {flex:1; text-align:center; padding:20px 0px;}
+	a {flex:1; text-align:center;}
 	@include breakpoint(s) {
 		display:block;
 		a {display:block;}
