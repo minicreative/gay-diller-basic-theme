@@ -10,7 +10,8 @@ $font_body: sans-serif !default;
 $bg: #fff !default;
 $text: #000 !default;
 $link_accent: #000 !default;
-$button_bg: #000 !default;
+$button: #000 !default;
+$button_border: 1px solid #666;
 $button_text: #fff !default;
 $nav_accent: #000 !default;
 $nav_hover: #000 !default;
@@ -34,8 +35,9 @@ h1, h2, h3 {font-family:$font_display; font-weight:400;}
 
 // Reusable Elements ======================================================
 @mixin button {
-	display:block; padding:10px 20px; line-height:1.2; text-align:center; 
-	box-sizing:border-box; background:$button; color:$button_text;
+	display:block; box-sizing:border-box; padding:10px 20px;
+	background:$button; color:$button_text; border:$button_border;
+	line-height:1.2; text-align:center; 
 	&:hover {
 		@include box-shadow(0px 0px 4px rgba(0,0,0,0.16));
 	}
@@ -45,6 +47,11 @@ h1, h2, h3 {font-family:$font_display; font-weight:400;}
 @mixin link {
 	border-bottom:1px solid $link;
 	&:hover {color:$link;}
+}
+
+// WordPress Styles =====================================================
+footer .widgettitle, .contact-section .widgettitle {
+	display:none;
 }
 
 // Basic Layout Styles ===================================================
