@@ -30,7 +30,7 @@ function diller_contact_section_customizer ($wp_customize) {
 	)));
 }
 
-add_action('customize_register', 'gay_diller_contact_section_customizer');
+add_action('customize_register', 'diller_contact_section_customizer');
 
 // Functions
 function diller_contact_section_style () {
