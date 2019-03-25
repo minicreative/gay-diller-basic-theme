@@ -1,5 +1,11 @@
 <?php
 
+// Gutenberg Support =====================================================
+function gutenberg_wide_setup() {
+	add_theme_support( 'align-wide' );
+}
+add_action( 'after_setup_theme', 'gutenberg_wide_setup' );
+
 // Plugin Includes =======================================================
 include("theme-includes/contact-section-setup.php");
 include("theme-includes/footer-setup.php");
