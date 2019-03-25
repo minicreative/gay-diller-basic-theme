@@ -112,6 +112,9 @@ header {
 
 	// Content Styles
 	a {@include link;}
+	
+	// Gutenberg buttons to theme buttons
+	.wp-block-button__link {@include border-radius(0px); @include button;}
 }
 
 // Contact Section & Footer
@@ -246,5 +249,20 @@ footer {
 	@include breakpoint(s) {
 		display:block;
 		a {display:block;}
+	}
+}
+
+// Front Page Content
+.content.front-page.gutenberg {
+	.wp-block-columns.has-2-columns {
+		position:relative;
+		.wp-block-column {
+			&:first-child {margin-right:30px;}
+			&:last-child {margin-left:30px;}
+		}
+		&:after {
+			content:""; position:absolute; height:100%; top:0px; left:50%;
+			border-left:1px solid #666;
+		}
 	}
 }

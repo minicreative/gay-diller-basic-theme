@@ -7,10 +7,6 @@
 <?php include("theme-includes/front-page-buttons.php"); ?>
 
 <!-- Content -->
-<div class="content front-page" style="<?= get_content_style() ?>">
-	<div class="container">
-		<?php the_content(); ?>
-	</div>
-</div>
+<?php include("theme-includes/front-page-content.php"); ?>
 
 <?php get_footer(); ?>
