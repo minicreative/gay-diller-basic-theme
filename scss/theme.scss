@@ -14,7 +14,6 @@ $button: #000 !default;
 $button_border: 1px solid #666 !default;
 $button_text: #fff !default;
 $nav_accent: #000 !default;
-$nav_hover: #000 !default;
 
 // Colors
 body {background:$bg;}
@@ -59,7 +58,7 @@ h1, h2, h3 {font-family:$font_display; font-weight:400;}
 
 // Basic Layout Styles ===================================================
 header {
-	position:relative; padding:20px 0px; @include section_shadow;
+	position:relative; padding:24px 0px; @include section_shadow;
 
 	// Logo
 	.logo {
@@ -85,9 +84,6 @@ header {
 				}
 				&.current-menu-item, &.current-menu-parent {
 					color:$nav_accent;
-				}
-				> a:hover {
-					color:$nav_hover;
 				}
 			}
 			ul.sub-menu {
@@ -152,14 +148,36 @@ footer, .contact-section {
 // Footer
 footer {
 	position:relative; z-index:10; @include vertical-pad; @include section_shadow;
-	@include breakpoint(m) {
-		text-align:center; padding:$padding_ 0px;
+
+	// Desktop style: flex columns
+	@include breakpoint(notTouch) {
+		.container {display:flex;}
+		.footercol {
+			flex:1; min-width:200px; margin:0px 15px;
+			&:first-child {margin-left:0px;}
+			&:last-child {margin-right:0px;}
+		}
 	}
-	.container {display:flex;}
-	.footercol {
-		flex:1; min-width:200px; margin:0px 15px;
-		&:first-child {margin-left:0px;}
-		&:last-child {margin-right:0px;}
+
+	// Tablet style: first full width, remaining 50%
+	@include breakpoint(m-only) {
+		.container {display:block;}
+		.footercol {
+			display:inline-block; vertical-align:top;
+			&:first-child {width:100%; text-align:center;}
+			&:nth-child(2), &:nth-child(3) {
+				width:50%; margin:$padding_ 0px 0px;
+			}
+			&:nth-child(2) {padding-right:10px;}
+			&:nth-child(3) {padding-left:10px;}
+		}
+	}
+
+	@include breakpoint(s) {
+		.footercol {
+			display:block; width:100%; text-align:center; margin-top:$padding_;
+			&:first-child {margin-top:0px;}
+		}
 	}
 }
 
@@ -171,8 +189,8 @@ footer {
 
 // Page Elements ========================================================
 
-// Front Page Slider
-.front-page-slider {
+// Diller Slider: basic styles for slider
+.diller-slider {
 	.slick-arrow {
 		position:absolute; top:50%; margin-top:-15px; width:30px; height:30px;
 		background-size:100% 100%; cursor:pointer; z-index:100;
@@ -182,10 +200,49 @@ footer {
 	.slick-next {right:30px; background-image:url("../../images/arrow-next.png");}
 }
 
+// Front Page Gallery Slider
+.front-page-gallery-slider {
+
+	// Background Settings
+	background-size:auto 100%; background-size:cover; background-position:center center;
+
+	// Sizing Settings
+	height:400px; 
+	@include breakpoint(m) {height:320px;}
+	@include breakpoint(s) {height:240px;}
+
+	// Container Settings
+	.slides {height:100%; width:100%;}
+	.slick-list, .slick-track {height:100%; width:100%;}
+
+	// Slide Settings
+	.slide {
+		height:100%; text-align:center; padding:40px 0px;
+		@include breakpoint(m) {padding:30px 0px;}
+		@include breakpoint(s) {padding:0px;}
+		img {
+			display:inline-block; height:100%; margin:0px 10px; box-sizing:border-box;
+			border:8px solid white; @include box-shadow(0px 0px 12px rgba(0,0,0,0.7));
+		}
+	}
+	
+	// Mobile Settings
+	@include breakpoint(s) {
+		.slide {
+			display:flex !important; justify-content:center; align-items:center; overflow:hidden; width:100%;
+			img {
+				margin:0px; border:0px; @include box-shadow(none); object-fit:cover;
+				flex-shrink:0; min-width:100%; min-height:100%; max-width:10000px;
+			}
+			img:nth-child(2), img:nth-child(3) {display:none;}
+		}
+	}
+}
+
 // Front Page Buttons
 .front-page-buttons {
-	display:flex;
-	a {flex:1; text-align:center;}
+	display:flex; color:white;
+	a {flex:1; text-align:center; padding:15px 0px;}
 	@include breakpoint(s) {
 		display:block;
 		a {display:block;}
