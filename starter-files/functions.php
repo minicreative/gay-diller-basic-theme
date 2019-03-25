@@ -7,6 +7,7 @@ function gutenberg_wide_setup() {
 add_action( 'after_setup_theme', 'gutenberg_wide_setup' );
 
 // Plugin Includes =======================================================
+include("theme-includes/page-header-bg-setup.php");
 include("theme-includes/contact-section-setup.php");
 include("theme-includes/footer-setup.php");
 
