@@ -12,3 +12,4 @@ Move `starter-files/front-page.php` into the main directory
 Move `starter-files/functions.php` into the main directory  
 Move `starter-files/main.scss` into the scss directory  
 Move `starter-files/head.php` into a *new directory* called site-includes  
+Feel free to delete `setup-theme.sh` and `starter-files`
