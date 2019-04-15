@@ -11,4 +11,4 @@ Child theme designed for Gay Diller
 Move `starter-files/front-page.php` into the main directory  
 Move `starter-files/functions.php` into the main directory  
 Move `starter-files/main.scss` into the scss directory  
-Move `starter-files/head.php` into the site-includes directory  
+Move `starter-files/head.php` into a new directory called site-includes  
