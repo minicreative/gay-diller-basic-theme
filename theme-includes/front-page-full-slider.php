@@ -4,11 +4,11 @@
 			the_row();
 			if (get_sub_field('slide_link')) echo "<a href='".get_sub_field('slide_link')."'>";
 			echo "<div class='slide' style=\"".get_bg_image(get_sub_field('slide_background')['url'])."\">";
-				echo "<div class='info'>";
+				echo "<div class='flex'><div class='info'>";
 					echo "<div class='title'>".get_sub_field('slide_title')."</div>";
 					echo "<div class='divider'></div>";
 					echo "<div class='description'>".get_sub_field('slide_description')."</div>";
-				echo "</div>";
+				echo "</div></div>";
 			echo "</div>";
 			if (get_sub_field('slide_link')) echo "</a>";
 		} ?>

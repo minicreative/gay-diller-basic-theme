@@ -83,6 +83,16 @@ Message Body:
 **Setting up the footer:**
 1. The footer displays widgets which can be set up under Appearance > Widgets > Footer.
 
+### Front Page Content
+
+Front page content is usually two columns divided by a border.  
+
+**Activating front page content**
+1. Include `<?php include("theme-includes/front-page-content.php"); ?>` in the desired position in `front-page.php`.
+
+**Setting up front page content**  
+Add a two-column section in Gutenberg, and then fill in the content using headers (H2 or lower), buttons, shortcodes or other plugins.
+
 ### Front Page Buttons
 
 **Activating front page buttons:**
