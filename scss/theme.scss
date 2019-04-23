@@ -110,9 +110,6 @@ header {
 .content {
 	padding:50px 0px;
 	@include breakpoint(m) {padding:30px 0px;}
-
-	// Content Styles
-	a {@include link;}
 	
 	// Gutenberg buttons to theme buttons
 	.wp-block-button__link {@include border-radius(0px); @include button;}
