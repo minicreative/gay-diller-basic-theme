@@ -4,11 +4,18 @@
 			the_row();
 			if (get_sub_field('slide_link')) echo "<a href='".get_sub_field('slide_link')."'>";
 			echo "<div class='slide' style=\"".get_bg_image(get_sub_field('slide_background')['url'])."\">";
-				echo "<div class='flex'><div class='info'>";
-					echo "<div class='title'>".get_sub_field('slide_title')."</div>";
-					echo "<div class='divider'></div>";
-					echo "<div class='description'>".get_sub_field('slide_description')."</div>";
-				echo "</div></div>";
+				echo "<div class='flex'>";
+				if (get_sub_field('slide_title') || get_sub_field('slide_description')) {
+					echo "<div class='info'>";
+						if (get_sub_field('slide_title'))
+							echo "<div class='title'>".get_sub_field('slide_title')."</div>";
+						if (get_sub_field('slide_title') && get_sub_field('slide_description'))
+							echo "<div class='divider'></div>";
+						if (get_sub_field('slide_description'))
+							echo "<div class='description'>".get_sub_field('slide_description')."</div>";
+					echo "</div>";
+				}
+				echo "</div>";
 			echo "</div>";
 			if (get_sub_field('slide_link')) echo "</a>";
 		} ?>
