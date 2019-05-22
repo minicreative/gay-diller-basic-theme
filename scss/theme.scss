@@ -118,7 +118,11 @@ header {
 // Blog Elements
 .post-preview {
 	.column.full & {
-		.featured-image {float:left; width:30%; margin-right:$padding; margin-bottom:20px;}
+		.featured-image {
+			float:left; width:30%; margin-right:$padding; margin-bottom:20px;
+			@include breakpoint(m) {width:40%; margin-right:$padding_;}
+			@include breakpoint(s) {float:none; width:100%; margin-right:0px;}
+		}
 	}
 }
 
