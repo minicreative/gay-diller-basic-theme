@@ -115,6 +115,13 @@ header {
 	.wp-block-button__link {@include border-radius(0px); @include button;}
 }
 
+// Blog Elements
+.post-preview {
+	.column.full & {
+		.featured-image {float:left; width:30%; margin-right:$padding; margin-bottom:20px;}
+	}
+}
+
 // Contact Section & Footer
 footer, .contact-section {
 	.widgettitle {display:none;}
